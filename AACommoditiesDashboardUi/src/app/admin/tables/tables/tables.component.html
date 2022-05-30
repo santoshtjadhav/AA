@@ -1,0 +1,52 @@
+<section id="sample-table" class="mat-elevation-z8 bg-white">
+  <mat-form-field>
+    <label>Filter Anything
+    <input matInput (keyup)="applyFilter($event)" placeholder="" appearance="outline" style="border: 1px solid #000;" bar></label>
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" matSort class="w-100">
+    <ng-container matColumnDef="Model">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Model </th>
+      <td mat-cell *matCellDef="let row"> {{row.model}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Commodity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Commodity </th>
+      <td mat-cell *matCellDef="let row"> {{row.commodity}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ContractDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ContractDate </th>
+      <td mat-cell *matCellDef="let row"> {{row.contractDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Contract">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract </th>
+      <td mat-cell *matCellDef="let row" > {{row.contract}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Positon">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Positon </th>
+      <td mat-cell *matCellDef="let row" > {{row.positon}} </td>    
+    </ng-container>    
+    
+    <ng-container matColumnDef="NewTradeAction">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> NewTradeAction </th>
+      <td mat-cell *matCellDef="let row" > {{row.newTradeAction}} </td>
+    </ng-container>    
+    
+    <ng-container matColumnDef="Price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+      <td mat-cell *matCellDef="let row" > {{row.price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Pnl">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Pnl </th>
+      <td mat-cell *matCellDef="let row" > {{row.pnl}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+  </table>
+
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</section>

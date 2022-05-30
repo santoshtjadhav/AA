@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Model Cummulative Data</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+ 
+<section id="sample-table" class="mat-elevation-z8 bg-white">
+
+  <table mat-table [dataSource]="dataSource" matSort class="w-100">
+    <ng-container matColumnDef="Model">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Model </th>
+      <td mat-cell *matCellDef="let row"> {{row.model}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ContractDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ContractDate </th>
+      <td mat-cell *matCellDef="let row"> {{row.contractDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="RunningTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> RunningTotal </th>
+      <td mat-cell *matCellDef="let row" > {{row.runningTotal}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+  </table>
+
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</section>
+</mat-card-content>
+</mat-card>
